@@ -1,0 +1,76 @@
+﻿
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.css">
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"
+        integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="
+        crossorigin="anonymous"></script>
+
+<body>
+    <div class="selector" title="Basic dialog">
+        <p>This is the default dialog which is useful for displaying information. The dialog window can be moved, resized and closed with the 'x' icon.</p>
+    </div>
+
+    <a href="#" id="contactUs">Contact Us</a>
+    <div id="dialog" title="Contact form">
+        <p>appear now</p>
+    </div>
+
+
+</body>
+
+<script>
+    $(document).ready(function () {
+
+        // this initializes the dialog (and uses some common options that I do)
+        $("#dialog").dialog({
+            autoOpen: false, modal: true, show: "blind", hide: "blind"
+        });
+
+        // next add the onclick handler
+        $("#contactUs").click(function () {
+            alert("a");
+            $("#dialog").dialog("open");
+            return false;
+        });
+
+
+
+
+        var user_ids = $('.user_ids:checked').map(function () {
+            return this.value;
+        }).get();
+
+        var opt = {
+            autoOpen: true,
+            modal: true,
+            width: 300,
+            height: 300,
+            title: 'Dialog'
+        };
+
+        $(".selector")
+            .dialog(opt)
+            .data('uids', 'user_ids')
+            .dialog({
+                buttons: [
+                    {
+                        text: "Confirm",
+                        icon: "ui-icon-heart",
+                        click: function () {
+                            console.log("confirmed");
+                        }
+                    },
+                    {
+                        text: "Cancel",
+                        icon: "ui-icon-heart",
+                        click: function () {
+                            $(this).dialog("close");
+                        }
+                    }
+                ]
+            });
+
+        $(".selector").dialog("open");
+
+    });
+</script>

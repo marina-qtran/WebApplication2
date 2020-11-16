@@ -1,0 +1,62 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+            integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+            crossorigin="anonymous"></script>
+</head>
+<body>
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid">
+            <!--Navbar Header Start Here-->
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">C-sharp Corner</a>
+            </div>
+            <!--Navbar Header End Here-->
+            <!--Menu Start Here-->
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="#">Home</a></li>
+                <li><a href="#">About Us</a></li>
+                <!--dropdown Menu Start-->
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        Technology
+                        <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">.NET</a></li>
+                        <li><a href="#">HTML5</a></li>
+                        <li><a href="#">ASP.NET MVC</a></li>
+                        <li><a href="#">Java</a></li>
+                    </ul>
+                </li>
+                <!--dropdown Menu End-->
+                <li><a href="#">Contact Us</a></li>
+            </ul>
+            <!--Menu End Here-->
+        </div>
+    </nav>
+
+
+
+   
+
+
+
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+        </footer>
+    </div>
+
+    @RenderSection("scripts", required: false)
+</body>
+</html>
